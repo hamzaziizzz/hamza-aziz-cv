@@ -264,6 +264,10 @@ body.dark-theme {
   letter-spacing: 2px;
 }
 
+.home__profession {
+  text-shadow: 0 0 6px hsl(30, 8%, 80%);
+}
+
 .home__name {
   margin-bottom: 0.25rem;
 }
