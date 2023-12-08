@@ -379,7 +379,7 @@ body.dark-theme {
 /* To add code or make changes to the section */
 
 
-/*=============== REFERENCES ===============*/ 
+/*=============== PROJECTS ===============*/ 
 /* To add code or make changes to the section */
 
 
@@ -600,8 +600,7 @@ body.dark-theme {
     transform: translateY(-2rem);
   }
 
-  .certificates__container,
-  .references__container {
+  .certificates__container {
     grid-template-columns: repeat(2, 1fr);
   }
 
