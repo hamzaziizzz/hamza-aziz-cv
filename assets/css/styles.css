@@ -9,8 +9,8 @@
   /*Color mode HSL(hue, saturation, lightness)*/
   --title-color: hsl(40, 48%, 12%);
   --text-color: hsl(40, 24%, 24%);
-  --body-color: hsl(40, 4%, 88%);
-  --container-color: hsl(40, 48%, 88%);
+  --body-color: hsl(0, 0%, 64%);
+  --container-color: hsl(0, 0%, 83%);
 
   /*========== Font and typography ==========*/
   /*.5rem = 8px | 1rem = 16px ...*/
@@ -265,7 +265,7 @@ body.dark-theme {
 }
 
 .home__profession {
-  text-shadow: 0 0 6px hsl(30, 8%, 80%);
+  text-shadow: 0 0 6px hsl(0, 0%, 100%);
 }
 
 .home__name {
@@ -292,7 +292,7 @@ body.dark-theme {
 
 .home__img {
   width: 205px;
-  transform: translateY(1px);
+  transform: translateY(20px);
 }
 
 .home__star-1,
@@ -310,12 +310,12 @@ body.dark-theme {
 }
 
 .home__star-2 {
-  bottom: 0.75rem;
+  bottom: 0.95rem;
   right: -3.5rem;
 }
 
 .home__profession {
-  transform: translateY(-1.2rem);
+  transform: translateY(-0.95rem);
 
 }
 
@@ -361,10 +361,11 @@ body.dark-theme {
   grid-template-columns: repeat(2, max-content);
   align-items: baseline;
   column-gap: 3rem;
+  row-gap: 1.5rem;
 }
 
 .skills__list {
-  row-gap: 1rem;
+  row-gap: 0.5rem;
 }
 
 .skills__list li {
