@@ -437,14 +437,42 @@
 
                      <div>
                         <h2 class="resume__title">
-                           <i class="ri-arrow-drop-right-line"></i> Facial Recognition Attendance System
+                           <i class="ri-arrow-drop-right-line"></i> CCTV-Based Face Attendance System
                         </h2>
-               
+
                         <div class="resume__data">
                            <span>Global InfoVentures Pvt. Ltd.</span>
-               
+
                            <p>
-                              Developed and integrated a Multi-Person Face Recognition System into the G5 Portal at Global Infoventures Pvt. Ltd., achieving 99.99% accuracy with TensorRT-optimized InsightFace and Milvus. The system includes robust anti-spoofing features and a Classroom Attendance Verification System using PTZ cameras, reducing fraudulent attendance by 25%.
+                              Launched on NVIDIA DGX A100, orchestrating 20+ live CCTV streams with TensorRT-optimized SCRFD (scrfd_10g_gnkps) and w600k_r50 models. Pioneered dual dataset staging (mobile &amp; CCTV) over Milvus Vector DB to mitigate domain shift, achieving &gt;99.99% face recognition accuracy across varied environments. Architected a CI/CD-style data pipeline that extracts faces from elevated-angle surveillance cameras, filters best-quality faces per person, and auto-updates the vector database &mdash; improving recognition rates by 25% in practical deployment.
+                           </p>
+                        </div>
+                     </div>
+
+                     <div>
+                        <h2 class="resume__title">
+                           <i class="ri-arrow-drop-right-line"></i> PTZ-Classroom Attendance System
+                        </h2>
+
+                        <div class="resume__data">
+                           <span>Global InfoVentures Pvt. Ltd.</span>
+
+                           <p>
+                              Automated classroom attendance by deploying rotating PTZ cameras integrated with the face recognition pipeline &mdash; eliminating manual roll calls and reducing proxy attendance by 25%.
+                           </p>
+                        </div>
+                     </div>
+
+                     <div>
+                        <h2 class="resume__title">
+                           <i class="ri-arrow-drop-right-line"></i> Edge-Based Office Attendance System
+                        </h2>
+
+                        <div class="resume__data">
+                           <span>Global InfoVentures Pvt. Ltd.</span>
+
+                           <p>
+                              Commissioned a Jetson Orin Nano for real-time on-device inference using DeepStream SDK, a Raspberry Pi AI camera, and proximity sensors. Eliminated manual attendance logging and replaced legacy biometric systems with 100% contactless AI-driven tracking, enhancing hygiene and operational efficiency in office setups.
                            </p>
                         </div>
                      </div>
