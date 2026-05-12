@@ -7,9 +7,14 @@
 
   /*========== Colors ==========*/
   /*Color mode HSL(hue, saturation, lightness)*/
-  --title-color: hsl(40, 48%, 12%);
-  --text-color: hsl(40, 24%, 24%);
-  --body-color: hsl(0, 0%, 64%);
+  --first-color: hsl(14, 98%, 50%);
+  --black-color: hsl(0, 0%, 0%);
+  --black-color-light: hsl(0, 0%, 40%);
+  --white-color: hsl(0, 0%, 95%);
+  --title-color: hsl(0, 0%, 0%);
+  --text-color: hsl(0, 0%, 35%);
+  --text-color-light: hsl(0, 0%, 64%);
+  --body-color: hsl(0, 0%, 87%);
   --container-color: hsl(0, 0%, 83%);
 
   /*========== Font and typography ==========*/
@@ -54,9 +59,11 @@ body {
   font-family: var(--body-font);
   font-size: var(--normal-font-size);
   font-weight: var(--font-medium);
-  background-color: var(--container-color);
+  background: radial-gradient(circle at 20% 20%, hsla(14, 98%, 50%, 0.1), transparent 45%),
+              radial-gradient(circle at 80% 0%, hsla(14, 98%, 50%, 0.08), transparent 40%),
+              var(--body-color);
   color: var(--text-color);
-  transition: background .4s;
+  transition: background-color .4s, color .4s;
 }
 
 h1, h2, h3, h4 {
@@ -87,10 +94,14 @@ img {
 
 /*========== Variables Dark theme ==========*/
 body.dark-theme {
-  --title-color: hsl(40, 48%, 90%);
-  --text-color: hsl(40, 12%, 70%);
-  --body-color: hsl(40, 12%, 16%);
-  --container-color: hsl(40, 20%, 8%);
+  --first-color: hsl(14, 80%, 50%);
+  --black-color: hsl(0, 0%, 18%);
+  --black-color-light: hsl(0, 0%, 30%);
+  --title-color: hsl(0, 0%, 95%);
+  --text-color: hsl(0, 0%, 70%);
+  --text-color-light: hsl(0, 0%, 50%);
+  --body-color: hsl(0, 0%, 8%);
+  --container-color: hsl(0, 0%, 12%);
 }
 
 /*========== 
@@ -98,28 +109,32 @@ body.dark-theme {
 	the website, in dark theme
 ==========*/
 .dark-theme :is(.nav__menu, .scrollup) {
-  background-color: hsl(40, 20%, 12%);
+  background-color: var(--container-color);
+}
+
+.dark-theme :is(.home__arrow, .home__line) {
+  filter: none;
 }
 
 .dark-theme .home__profession {
-  text-shadow: 0 0 6px hsl(40, 20%, 12%);
+  text-shadow: none;
 }
 
 .dark-theme::-webkit-scrollbar {
-  background-color: hsl(40, 16%, 15%);
+  background-color: hsl(0, 0%, 4%);
 }
 
 .dark-theme::-webkit-scrollbar-thumb {
-  background-color: hsl(40, 16%, 25%);
+  background-color: hsl(0, 0%, 20%);
 }
 
 .dark-theme::-webkit-scrollbar-thumb:hover {
-  background-color: hsl(40, 16%, 35%);
+  background-color: hsl(0, 0%, 30%);
 }
 
 /*=============== REUSABLE CSS CLASSES ===============*/
 .container {
-  max-width: 1024px;
+  max-width: 1239px;
   margin-inline: 1.5rem;
 }
 
@@ -137,7 +152,7 @@ body.dark-theme {
   margin: 0 auto 2.5rem;
   font-size: var(--h2-font-size);
   font-weight: var(--font-semi-bold);
-  border-bottom: 2px solid var(--title-color);
+  border-bottom: 2px solid var(--first-color);
   padding-bottom: .75rem;
 }
 
@@ -159,6 +174,7 @@ body.dark-theme {
   row-gap: 0.5rem;
   padding-left: 1.5rem;
   font-size: var(--small-font-size);
+  min-width: 0;
 }
 
 .resume__button-link {
@@ -170,8 +186,7 @@ body.dark-theme {
 }
 
 .resume__button-link:hover {
-  /* transform: scale(1.1); */
-  text-decoration: underline;
+  color: var(--first-color);
 }
 
 
@@ -199,8 +214,38 @@ body.dark-theme {
   font-weight: var(--font-semi-bold);
 }
 
+.nav__actions {
+  display: flex;
+  align-items: center;
+  column-gap: 1rem;
+}
+
+.nav__download {
+  display: inline-flex;
+  align-items: center;
+  column-gap: 0.4rem;
+  padding: 0.45rem 0.9rem;
+  border: 2px solid var(--title-color);
+  border-radius: 999px;
+  color: var(--title-color);
+  font-size: var(--small-font-size);
+  font-weight: var(--font-semi-bold);
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.nav__download:hover {
+  background-color: var(--first-color);
+  border-color: var(--first-color);
+  color: var(--white-color);
+}
+
 /* Navigation for mobile devices */
 @media screen and (max-width: 1023px) {
+  .nav__download {
+    padding-inline: 0.75rem;
+    font-size: 0.75rem;
+  }
+
   .nav__menu {
     position: fixed;
     bottom: 1.5rem;
@@ -232,7 +277,7 @@ body.dark-theme {
   position: absolute;
   width: 32px;
   height: 2px;
-  background-color: var(--title-color);
+  background-color: var(--first-color);
   left: -6px;
   bottom: -8px;
   transition: transform 0.3s, opacity 0.3s;
@@ -265,7 +310,8 @@ body.dark-theme {
 }
 
 .home__profession {
-  text-shadow: 0 0 6px hsl(0, 0%, 100%);
+  text-shadow: none;
+  margin-top: 1.5rem;
 }
 
 .home__name {
@@ -295,28 +341,22 @@ body.dark-theme {
   transform: translateY(20px);
 }
 
-.home__star-1,
-.home__star-2 {
+.home__arrow,
+.home__line {
   position: absolute;
   width: 50px;
-  fill: var(--title-color);
-  transition: fill 0.4s;
+  filter: invert(1);
+  transition: filter 0.4s;
 }
 
-.home__star-1 {
-  top: 2.5rem;
-  left: -3rem;
-  rotate: 15deg;
+.home__arrow {
+  left: 10%;
+  bottom: 8rem;
 }
 
-.home__star-2 {
-  bottom: 0.95rem;
-  right: -3.5rem;
-}
-
-.home__profession {
-  transform: translateY(-0.95rem);
-
+.home__line {
+  right: -2rem;
+  bottom: 1.5rem;
 }
 
 /*=============== ABOUT ===============*/
@@ -336,8 +376,7 @@ body.dark-theme {
 
 .about__button:hover,
 .about__social-link:hover {
-  text-decoration: underline;
-  /* transform: scale(1.1); */
+  color: var(--first-color);
 }
 
 .about__social {
@@ -358,7 +397,7 @@ body.dark-theme {
 }
 
 .skills__content {
-  grid-template-columns: repeat(2, max-content);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   align-items: baseline;
   column-gap: 3rem;
   row-gap: 1.5rem;
@@ -366,10 +405,23 @@ body.dark-theme {
 
 .skills__list {
   row-gap: 0.5rem;
+  min-width: 0;
 }
 
 .skills__list li {
   margin: 0;
+}
+
+.projects__container,
+.projects__container > div,
+.projects__container .resume__title,
+.projects__container .resume__data p {
+  min-width: 0;
+}
+
+.projects__container .resume__title,
+.projects__container .resume__data p {
+  overflow-wrap: anywhere;
 }
 
 /*=============== EDUCATION ===============*/ 
@@ -412,23 +464,23 @@ body.dark-theme {
 }
 
 .footer__link:hover {
-  text-decoration: underline;
+  color: var(--first-color);
 }
 
 /*=============== SCROLL BAR ===============*/
 ::-webkit-scrollbar {
   width: 0.6rem;
   border-radius: 0.5rem;
-  background-color: hsl(40, 16%, 75%);
+  background-color: hsl(0, 0%, 65%);
 }
 
 ::-webkit-scrollbar-thumb {
   border-radius: 0.5rem;
-  background-color: hsl(40, 16%, 65%);
+  background-color: hsl(0, 0%, 55%);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: hsl(40, 16%, 55%);
+  background-color: hsl(0, 0%, 45%);
 }
 
 /*=============== SCROLL UP ===============*/
@@ -448,6 +500,8 @@ body.dark-theme {
 }
 
 .scrollup:hover {
+  background-color: var(--first-color);
+  color: var(--white-color);
   transform: translateY(-0.25rem);
 }
 
@@ -519,6 +573,7 @@ body.dark-theme {
   .resume__left,
   .resume__right {
     padding-inline: 1.5rem;
+    min-width: 0;
   }
 
   .header {
@@ -587,22 +642,19 @@ body.dark-theme {
     width: 245px;
   }
 
-  .home__star-1,
-  .home__star-2 {
+  .home__arrow,
+  .home__line {
     width: 70px;
   }
 
-  .home__star-1 {
-    left: -10rem;
+  .home__arrow {
+    left: -8rem;
+    bottom: 9rem;
   }
 
-  .home__star-2 {
-    right: -8.5rem;
-    bottom: 2rem;
-  }
-
-  .home__profession {
-    transform: translateY(-2rem);
+  .home__line {
+    right: -7rem;
+    bottom: 3rem;
   }
 
   .certificates__container {
