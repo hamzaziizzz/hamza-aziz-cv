@@ -14,7 +14,7 @@
   --title-color: hsl(0, 0%, 0%);
   --text-color: hsl(0, 0%, 35%);
   --text-color-light: hsl(0, 0%, 64%);
-  --body-color: hsl(0, 0%, 87%);
+  --body-color: hsl(0, 0%, 83%);
   --container-color: hsl(0, 0%, 83%);
 
   /*========== Font and typography ==========*/
@@ -59,11 +59,14 @@ body {
   font-family: var(--body-font);
   font-size: var(--normal-font-size);
   font-weight: var(--font-medium);
-  background: radial-gradient(circle at 20% 20%, hsla(14, 98%, 50%, 0.1), transparent 45%),
-              radial-gradient(circle at 80% 0%, hsla(14, 98%, 50%, 0.08), transparent 40%),
-              var(--body-color);
+  background-color: var(--body-color);
   color: var(--text-color);
   transition: background-color .4s, color .4s;
+}
+
+.resume {
+  background-color: var(--container-color);
+  transition: background-color .4s;
 }
 
 h1, h2, h3, h4 {
@@ -604,24 +607,8 @@ body.dark-theme {
 
 /* For large devices */
 @media screen and (min-width: 1024px) {
-  body {
-    background-color: var(--body-color);
-    margin-block: 3rem;
-  }
-
-  .resume {
-    background-color: var(--container-color);
-    box-shadow: 0 0 48px hsla(40, 48%, 12%, 0.25);
-    margin-inline: auto;
-    transition: background 0.4s;
-  }
-
   .resume__main {
     grid-template-columns: 376px 1fr;
-  }
-
-  .dark-theme .resume {
-    box-shadow: 0 0 48px hsla(40, 48%, 4%, 0.4);
   }
 
   .nav {
@@ -664,5 +651,21 @@ body.dark-theme {
   .footer__container {
     margin-inline: 1.5rem;
     padding-top: 2rem;
+  }
+}
+
+@media screen and (min-width: 1240px) {
+  body {
+    background-color: var(--body-color);
+    margin-block: 3rem;
+  }
+
+  .resume {
+    box-shadow: 0 0 48px hsla(40, 48%, 12%, 0.25);
+    margin-inline: auto;
+  }
+
+  .dark-theme .resume {
+    box-shadow: 0 0 48px hsla(40, 48%, 4%, 0.4);
   }
 }
